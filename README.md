@@ -1,6 +1,6 @@
 # Cline Public Guide
 
-> Создано специально для учеников клуба **ProAiCommunity**
+> Создано специально для клуба **ProAiCommunity**
 
 ---
 
