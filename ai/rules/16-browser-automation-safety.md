@@ -1,5 +1,8 @@
 # Browser Automation Safety
 
+> Этот файл — про **границы безопасности** browser automation.
+> Если тебе нужно понять, когда и как вообще использовать браузерный режим на практике, смотри [`10-browser-automation-safe.md`](10-browser-automation-safe.md).
+
 ## Принцип
 По умолчанию browser automation должен быть read-only, если пользователь явно не просил действие.
 
