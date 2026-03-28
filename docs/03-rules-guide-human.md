@@ -21,13 +21,13 @@ Rules уменьшают хаос.
 - как использовать tools?
 
 ## Минимальный набор для старта
-- `01-core-language-style.md`
-- `02-documentation-search.md`
-- `05-search-tools.md`
-- `06-code-quality.md`
-- `07-tool-usage.md`
-- `08-skills-management.md`
-- `SOUL_TEMPLATE.md`
+- [`01-core-language-style.md`](../ai/rules/01-core-language-style.md)
+- [`02-documentation-search.md`](../ai/rules/02-documentation-search.md)
+- [`05-search-tools.md`](../ai/rules/05-search-tools.md)
+- [`06-code-quality.md`](../ai/rules/06-code-quality.md)
+- [`07-tool-usage.md`](../ai/rules/07-tool-usage.md)
+- [`08-skills-management.md`](../ai/rules/08-skills-management.md)
+- [`SOUL_TEMPLATE.md`](../ai/rules/SOUL_TEMPLATE.md)
 
 ## Типичная ошибка
 Складывать в rules всё подряд:

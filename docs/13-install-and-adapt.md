@@ -6,10 +6,10 @@
 
 ## 1. Что копировать первым делом
 Сначала копируй только:
-- `ai/rules/`
-- 3–5 нужных `ai/skills/`
-- при необходимости `ai/hooks/TaskStart` и `ai/hooks/PreToolUse`
-- 2–3 MCP из `docs/07-mcp-guide-human.md`
+- [`ai/rules/`](../ai/rules/)
+- 3–5 нужных элементов из [`ai/skills/`](../ai/skills/)
+- при необходимости [`ai/hooks/TaskStart`](../ai/hooks/TaskStart) и [`ai/hooks/PreToolUse`](../ai/hooks/PreToolUse)
+- 2–3 MCP из [`docs/07-mcp-guide-human.md`](07-mcp-guide-human.md)
 
 ## 2. Что не копировать буквально
 Нельзя копировать буквально:

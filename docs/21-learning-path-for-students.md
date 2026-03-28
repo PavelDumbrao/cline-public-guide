@@ -41,7 +41,7 @@
 - MCP
 
 ### Домашка
-Пройти готовые prompt-тесты из `examples/prompts/smoke-tests.md`.
+Пройти готовые prompt-тесты из [`examples/prompts/smoke-tests.md`](../examples/prompts/smoke-tests.md).
 
 ### Критерий понимания
 Ты умеешь доказать, что setup работает, а не просто «кажется, что работает».
