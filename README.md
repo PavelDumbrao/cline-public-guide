@@ -10,8 +10,10 @@
 ### Я новичок
 1. Открой `docs/00-start-here.md`
 2. Сразу потом `docs/13-install-and-adapt.md`
-3. Потом `docs/01-cline-mental-model.md`
-4. Потом `docs/07-mcp-guide-human.md`
+3. Потом `docs/15-example-prompts-and-calls.md`
+4. Потом `docs/01-cline-mental-model.md`
+5. Потом `docs/07-mcp-guide-human.md`
+6. И для практики — `examples/prompts/smoke-tests.md`
 
 ### Я уже что-то настраивал
 1. Открой `docs/02-official-vs-pavel-setup.md`
@@ -28,9 +30,10 @@
 ### Я хочу собрать систему с нуля
 1. `docs/00-start-here.md`
 2. `docs/13-install-and-adapt.md`
-3. `docs/07-mcp-guide-human.md`
-4. `ai/README_FOR_CLINE.md`
-5. `REPORT.md`
+3. `docs/15-example-prompts-and-calls.md`
+4. `docs/07-mcp-guide-human.md`
+5. `ai/README_FOR_CLINE.md`
+6. `REPORT.md`
 
 ### Я хочу использовать GPT + Cline связку
 - `docs/09-gpt-cline-collaboration.md`

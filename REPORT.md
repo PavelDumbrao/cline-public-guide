@@ -98,6 +98,31 @@
 - добавлен `docs/14-validation-checklists.md` с чеклистами проверки rules / skills / hooks / MCP
 - `README.md` обновлён новыми маршрутами для новичка
 
+## Финальная полировка
+
+На финальной полировке были закрыты последние серые зоны:
+- `docs/13-install-and-adapt.md` стал конкретнее: добавлены варианты layout, быстрый сценарий переноса и причины, почему Cline может не видеть файлы
+- добавлен `docs/15-example-prompts-and-calls.md` с готовыми примерами запросов к Cline
+- добавлен `examples/prompts/smoke-tests.md` с короткими smoke-test prompt'ами
+- в `docs/07-mcp-guide-human.md` появились типовые сценарии выбора MCP
+- в AI-workflows добавлены `Expected output` и `Minimal report format`
+
+## Что стало конкретнее
+- стало яснее, как реально переносить repo к себе
+- появились почти готовые примеры prompt'ов
+- workflows теперь не только описывают процесс, но и ожидаемый результат
+- новичок может не только читать repo, но и сразу запускать проверки
+
+## Где теперь есть готовые примеры
+- `docs/15-example-prompts-and-calls.md`
+- `examples/prompts/smoke-tests.md`
+- `docs/00-start-here.md`
+
+## Что всё ещё intentionally left flexible
+- пути и layout не объявлены универсальными там, где они зависят от версии Cline
+- не добавлялись жёсткие platform-specific инструкции
+- infra-specific и headless сценарии не расширялись без необходимости
+
 ## Что стало практичнее для новичка
 - появился более понятный маршрут старта
 - стало проще переносить setup к себе без копирования чужой инфраструктуры
@@ -108,6 +133,8 @@
 ## Какие файлы были добавлены
 - `docs/13-install-and-adapt.md`
 - `docs/14-validation-checklists.md`
+- `docs/15-example-prompts-and-calls.md`
+- `examples/prompts/smoke-tests.md`
 
 ## Что осталось intentionally simplified
 - не добавлялись platform-specific инструкции под каждую версию Cline
