@@ -1,0 +1,14 @@
+#!/bin/bash
+INPUT=$(cat)
+
+if ! command -v jq >/dev/null 2>&1; then
+  echo '{"cancel":false}'
+  exit 0
+fi
+
+TOOL=$(printf '%s' "$INPUT" | jq -r '.postToolUse.tool // ""')
+SUCCESS=$(printf '%s' "$INPUT" | jq -r '.postToolUse.success // "unknown"')
+
+echo "[PostToolUse] tool=${TOOL} success=${SUCCESS}" >&2
+
+echo '{"cancel":false}'

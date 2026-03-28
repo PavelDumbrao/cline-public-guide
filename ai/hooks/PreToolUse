@@ -1,0 +1,19 @@
+#!/bin/bash
+INPUT=$(cat)
+
+if ! command -v jq >/dev/null 2>&1; then
+  echo '{"cancel":false}'
+  exit 0
+fi
+
+TOOL=$(printf '%s' "$INPUT" | jq -r '.preToolUse.tool // ""')
+COMMAND=$(printf '%s' "$INPUT" | jq -r '.preToolUse.parameters.command // ""')
+
+if [ "$TOOL" = "execute_command" ]; then
+  if echo "$COMMAND" | grep -qE 'git\s+add.*\.env'; then
+    echo '{"cancel":true,"errorMessage":"Нельзя добавлять .env в git"}'
+    exit 0
+  fi
+fi
+
+echo '{"cancel":false}'

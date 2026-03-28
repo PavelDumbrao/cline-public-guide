@@ -1,0 +1,100 @@
+{
+  "name": "Lead Magnet Bot — Universal Template",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message",
+          "callback_query"
+        ]
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        300
+      ],
+      "name": "Telegram Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\n\nconst isMessage = !!item.message;\nconst isCallback = !!item.callback_query;\n\nconst userId = isMessage ? item.message.from.id : item.callback_query.from.id;\nconst username = isMessage ? item.message.from.username || '' : item.callback_query.from.username || '';\nconst text = isMessage ? item.message.text || '' : '';\nconst callbackData = isCallback ? item.callback_query.data || '' : '';\n\nlet leadMagnetCode = '';\nlet source = 'direct';\n\nif (text.startsWith('/start ')) {\n  const param = text.split(' ')[1];\n  if (param) {\n    leadMagnetCode = param;\n    source = 'deeplink';\n  }\n}\n\nlet stage = 'new';\nif (callbackData.startsWith('ck_sub')) stage = 'checking_subscription';\nif (callbackData.startsWith('seg_')) stage = 'segmented';\nif (callbackData.startsWith('bonus_')) stage = 'bonus_requested';\n\nlet assetType = 'video_note';\nlet telegramFileId = '<TELEGRAM_FILE_ID>';\n\nreturn [{\n  json: {\n    user_id: userId,\n    username: username,\n    text: text,\n    callback_data: callbackData,\n    lead_magnet_code: leadMagnetCode,\n    source: source,\n    stage: stage,\n    asset_type: assetType,\n    telegram_file_id: telegramFileId,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        460,
+        300
+      ],
+      "name": "Normalize Event"
+    },
+    {
+      "parameters": {
+        "content": "## Lead Magnet Bot\n\nУниверсальный шаблон для выдачи лид-магнитов:\n\n1. Normalize Event — парсинг данных\n2. Upsert User — сохранение в таблицу\n3. Check Subscription — проверка подписки\n4. Deliver Asset — выдача материала\n5. Segment Question — сегментация\n6. Follow-up — догрев\n7. CTA — оффер\n\nПодробная документация: LEAD-MAGNET-BOT-ARCHITECTURE.md"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        220,
+        140
+      ],
+      "typeVersion": 1,
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.user_id }}",
+        "text": "Привет! 👋\n\nЭто универсальный Lead Magnet Bot.\n\nДля тестирования используй:\n/start lm_test\n\nИли просто напиши любое сообщение.",
+        "additionalFields": {
+          "parse_mode": "HTML"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        680,
+        300
+      ],
+      "name": "Welcome Message"
+    },
+    {
+      "parameters": {
+        "content": "## Следующие шаги:\n\n1. Создать Data Table: lead_magnet_users\n2. Добавить Upsert User логику\n3. Добавить Check Subscription\n4. Добавить Router by Asset Type\n5. Добавить Segment Question\n6. Добавить Wait + Follow-up\n7. Добавить CTA\n\nСейчас это минимальный рабочий прототип.",
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        660,
+        140
+      ],
+      "typeVersion": 1,
+      "name": "Sticky Note1"
+    }
+  ],
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Normalize Event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Event": {
+      "main": [
+        [
+          {
+            "node": "Welcome Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

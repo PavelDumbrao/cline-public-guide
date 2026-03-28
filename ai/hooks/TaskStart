@@ -1,0 +1,13 @@
+#!/bin/bash
+INPUT=$(cat)
+
+if ! command -v jq >/dev/null 2>&1; then
+  echo '{"cancel":false}'
+  exit 0
+fi
+
+TASK_ID=$(printf '%s' "$INPUT" | jq -r '.taskId // "unknown"')
+
+echo "[TaskStart] task=${TASK_ID}" >&2
+
+echo '{"cancel":false,"contextModification":"Задача начата. Работай по шагам."}'

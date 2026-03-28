@@ -1,0 +1,804 @@
+{
+  "name": "Lead Magnet Bot — Universal Template",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message",
+          "callback_query"
+        ]
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        304
+      ],
+      "name": "Telegram Trigger",
+      "id": "55c2fa1c-c88a-48b3-b162-8bd9895f9670"
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\n\nconst isMessage = !!item.message;\nconst isCallback = !!item.callback_query;\n\nconst userId = isMessage ? item.message.from.id : item.callback_query.from.id;\nconst username = isMessage ? item.message.from.username || '' : item.callback_query.from.username || '';\nconst firstName = isMessage ? item.message.from.first_name || '' : item.callback_query.from.first_name || '';\nconst text = isMessage ? item.message.text || '' : '';\nconst callbackData = isCallback ? item.callback_query.data || '' : '';\n\nlet leadMagnetCode = '';\nlet source = 'direct';\n\nif (text.startsWith('/start ')) {\n  const param = text.split(' ')[1];\n  if (param) {\n    leadMagnetCode = param;\n    source = 'deeplink';\n  }\n}\n\nlet stage = 'new';\nif (callbackData.startsWith('ck_sub')) stage = 'checking_subscription';\nif (callbackData.startsWith('seg_')) stage = 'segmented';\nif (callbackData.startsWith('bonus_')) stage = 'bonus_requested';\n\nreturn [{\n  json: {\n    user_id: userId,\n    username: username,\n    first_name: firstName,\n    text: text,\n    callback_data: callbackData,\n    lead_magnet_code: leadMagnetCode || 'default',\n    source: source,\n    stage: stage,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        464,
+        304
+      ],
+      "name": "Normalize Event",
+      "id": "f242598a-cef1-4c94-b757-bdb2e5ada60e"
+    },
+    {
+      "parameters": {
+        "dataTableId": "lead_magnet_users",
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "user_id",
+              "keyValue": "={{ $json.user_id }}"
+            }
+          ]
+        },
+        "limit": 1
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        688,
+        304
+      ],
+      "name": "Get User",
+      "alwaysOutputData": true,
+      "id": "2e9c80bd-378c-4e56-803b-4d46349c4f11"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        912,
+        304
+      ],
+      "name": "User Exists?",
+      "id": "94d0b206-7ab1-44f2-a5d4-7fe3e3027979"
+    },
+    {
+      "parameters": {
+        "dataTableId": "lead_magnet_users",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "user_id": "={{ $('Normalize Event').item.json.user_id }}",
+            "username": "={{ $('Normalize Event').item.json.username }}",
+            "first_name": "={{ $('Normalize Event').item.json.first_name }}",
+            "lead_magnet_code": "={{ $('Normalize Event').item.json.lead_magnet_code }}",
+            "source": "={{ $('Normalize Event').item.json.source }}",
+            "stage": "={{ $('Normalize Event').item.json.stage }}"
+          }
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        1136,
+        400
+      ],
+      "name": "Create User",
+      "id": "6dc92f94-00b1-400e-9710-b18c74c6a29c"
+    },
+    {
+      "parameters": {
+        "dataTableId": "lead_magnet_users",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "stage": "={{ $('Normalize Event').item.json.stage }}",
+            "updated_at": "={{ $now }}"
+          }
+        },
+        "matchingColumns": [
+          "user_id"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        1136,
+        208
+      ],
+      "name": "Update User",
+      "id": "a6e9d4b3-2ccd-449d-8b47-da90e159bc6c"
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch"
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1360,
+        304
+      ],
+      "name": "Merge",
+      "id": "3ab2a9fd-64ca-4208-801c-7d551776d812"
+    },
+    {
+      "parameters": {
+        "jsCode": "const code = $json.lead_magnet_code || 'default';\nreturn [{ json: { ...$json, lead_magnet_code: code } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1584,
+        304
+      ],
+      "name": "Parse LM Code",
+      "id": "9183baaa-7dc9-445e-a77b-e8781e32c0aa"
+    },
+    {
+      "parameters": {
+        "dataTableId": "lead_magnets",
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "code",
+              "keyValue": "={{ $json.lead_magnet_code }}"
+            }
+          ]
+        },
+        "limit": 1
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        1808,
+        304
+      ],
+      "name": "Get LM Config",
+      "alwaysOutputData": true,
+      "id": "2a2f3046-3667-4a26-b4af-e7614265ffe6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.code }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2032,
+        304
+      ],
+      "name": "Config Exists?",
+      "id": "7ee5178b-1e7b-4415-af4c-d260d9619335"
+    },
+    {
+      "parameters": {
+        "resource": "member",
+        "chatId": "={{ $json.channel_username }}",
+        "userId": "={{ $('Normalize Event').item.json.user_id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2256,
+        208
+      ],
+      "name": "Get Member",
+      "id": "38d676c8-f33e-4975-864d-c6b4374bda32"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "member,administrator,creator",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "singleValue": false
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2480,
+        208
+      ],
+      "name": "Is Subscribed?",
+      "id": "e826a85c-f86f-45c2-96d1-ce9ec523b11a"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Normalize Event').item.json.user_id }}",
+        "text": "Чтобы получить материал, подпишись на канал.\n\nПосле подписки нажми «Проверить».",
+        "additionalFields": {
+          "reply_markup": {
+            "inlineKeyboard": [
+              [
+                {
+                  "text": "Подписаться",
+                  "url": "={{ $('Get LM Config').item.json.channel_username }}"
+                }
+              ],
+              [
+                {
+                  "text": "Проверить подписку",
+                  "callback_data": "ck_sub"
+                }
+              ]
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2704,
+        304
+      ],
+      "name": "Subscribe Gate",
+      "id": "0639a9ed-baec-46db-a0cd-6cbb5ceb1324"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Normalize Event').item.json.callback_data }}",
+                    "rightValue": "ck_sub",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "recheck"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2928,
+        304
+      ],
+      "name": "Callback Router",
+      "id": "42d801e3-d5eb-4683-8d85-c39f7b169d32"
+    },
+    {
+      "parameters": {
+        "resource": "member",
+        "chatId": "={{ $('Get LM Config').item.json.channel_username }}",
+        "userId": "={{ $('Normalize Event').item.json.user_id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3152,
+        304
+      ],
+      "name": "Re-check Member",
+      "id": "5f27f1ba-8879-4f68-9f99-8138db12a886"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Get LM Config').item.json.asset_type }}",
+                    "rightValue": "video_note",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "video_note"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Get LM Config').item.json.asset_type }}",
+                    "rightValue": "video",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "video"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Get LM Config').item.json.asset_type }}",
+                    "rightValue": "text",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ]
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2704,
+        208
+      ],
+      "name": "Asset Router",
+      "id": "f8f0c7f0-30b6-4ee2-9c6d-072ec66be2bb"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=<TELEGRAM_API_SEND_VIDEO_NOTE_URL>",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "chat_id",
+              "value": "={{ $('Normalize Event').item.json.user_id }}"
+            },
+            {
+              "name": "video_note",
+              "value": "={{ $('Get LM Config').item.json.telegram_file_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2928,
+        208
+      ],
+      "name": "Send Video Note",
+      "id": "1835662d-4f54-423f-8c98-f569cba8e180"
+    },
+    {
+      "parameters": {
+        "content": "## Batch 3 Done\n\n✅ Subscribe Gate\n✅ Callback Router\n✅ Re-check Member\n✅ Asset Router\n✅ Send Video Note"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        224,
+        144
+      ],
+      "typeVersion": 1,
+      "name": "Sticky Note",
+      "id": "4085e883-102e-4d78-b407-dc69ab31e992"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $(\"Normalize Event\").item.json.user_id }}",
+        "binaryData": true,
+        "binaryPropertyName": "data",
+        "additionalFields": {
+          "file": "={{ $(\"Get LM Config\").item.json.telegram_file_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3152,
+        208
+      ],
+      "name": "Send Video"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $(\"Normalize Event\").item.json.user_id }}",
+        "text": "={{ $(\"Get LM Config\").item.json.text_body }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3152,
+        304
+      ],
+      "name": "Send Text"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $(\"Normalize Event\").item.json.user_id }}",
+        "binaryData": true,
+        "binaryPropertyName": "data",
+        "additionalFields": {
+          "file": "={{ $(\"Get LM Config\").item.json.telegram_file_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3152,
+        400
+      ],
+      "name": "Send Document"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $(\"Normalize Event\").item.json.user_id }}",
+        "text": "={{ $(\"Get LM Config\").item.json.url }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3152,
+        496
+      ],
+      "name": "Send Link"
+    },
+    {
+      "parameters": {
+        "dataTableId": "lead_magnet_users",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "stage": "delivered",
+            "updated_at": "={{ $now }}"
+          }
+        },
+        "matchingColumns": [
+          "user_id"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        3376,
+        304
+      ],
+      "name": "Mark Delivered"
+    }
+  ],
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Normalize Event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Event": {
+      "main": [
+        [
+          {
+            "node": "Get User",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get User": {
+      "main": [
+        [
+          {
+            "node": "User Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Exists?": {
+      "main": [
+        [
+          {
+            "node": "Update User",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create User",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create User": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Update User": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Parse LM Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse LM Code": {
+      "main": [
+        [
+          {
+            "node": "Get LM Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get LM Config": {
+      "main": [
+        [
+          {
+            "node": "Config Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config Exists?": {
+      "main": [
+        [
+          {
+            "node": "Get Member",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Get Member": {
+      "main": [
+        [
+          {
+            "node": "Is Subscribed?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Subscribed?": {
+      "main": [
+        [
+          {
+            "node": "Asset Router",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Subscribe Gate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Subscribe Gate": {
+      "main": [
+        [
+          {
+            "node": "Callback Router",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Callback Router": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Re-check Member",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Re-check Member": {
+      "main": [
+        [
+          {
+            "node": "Is Subscribed?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Asset Router": {
+      "main": [
+        [
+          {
+            "node": "Send Video Note",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Video",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Video Note": {
+      "main": [
+        [
+          {
+            "node": "Mark Delivered",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Video": {
+      "main": [
+        [
+          {
+            "node": "Mark Delivered",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Text": {
+      "main": [
+        [
+          {
+            "node": "Mark Delivered",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Document": {
+      "main": [
+        [
+          {
+            "node": "Mark Delivered",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Link": {
+      "main": [
+        [
+          {
+            "node": "Mark Delivered",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  }
+}

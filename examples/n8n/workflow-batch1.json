@@ -1,0 +1,230 @@
+{
+  "name": "Lead Magnet Bot — Universal Template",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message",
+          "callback_query"
+        ]
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        304
+      ],
+      "name": "Telegram Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\n\nconst isMessage = !!item.message;\nconst isCallback = !!item.callback_query;\n\nconst userId = isMessage ? item.message.from.id : item.callback_query.from.id;\nconst username = isMessage ? item.message.from.username || '' : item.callback_query.from.username || '';\nconst firstName = isMessage ? item.message.from.first_name || '' : item.callback_query.from.first_name || '';\nconst text = isMessage ? item.message.text || '' : '';\nconst callbackData = isCallback ? item.callback_query.data || '' : '';\n\nlet leadMagnetCode = '';\nlet source = 'direct';\n\nif (text.startsWith('/start ')) {\n  const param = text.split(' ')[1];\n  if (param) {\n    leadMagnetCode = param;\n    source = 'deeplink';\n  }\n}\n\nlet stage = 'new';\nif (callbackData.startsWith('ck_sub')) stage = 'checking_subscription';\nif (callbackData.startsWith('seg_')) stage = 'segmented';\nif (callbackData.startsWith('bonus_')) stage = 'bonus_requested';\n\nreturn [{\n  json: {\n    user_id: userId,\n    username: username,\n    first_name: firstName,\n    text: text,\n    callback_data: callbackData,\n    lead_magnet_code: leadMagnetCode || 'default',\n    source: source,\n    stage: stage,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        464,
+        304
+      ],
+      "name": "Normalize Event"
+    },
+    {
+      "parameters": {
+        "dataTableId": "lead_magnet_users",
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "user_id",
+              "keyValue": "={{ $json.user_id }}"
+            }
+          ]
+        },
+        "limit": 1
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        688,
+        304
+      ],
+      "name": "Get User",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        912,
+        304
+      ],
+      "name": "User Exists?"
+    },
+    {
+      "parameters": {
+        "dataTableId": "lead_magnet_users",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "user_id": "={{ $('Normalize Event').item.json.user_id }}",
+            "username": "={{ $('Normalize Event').item.json.username }}",
+            "first_name": "={{ $('Normalize Event').item.json.first_name }}",
+            "lead_magnet_code": "={{ $('Normalize Event').item.json.lead_magnet_code }}",
+            "source": "={{ $('Normalize Event').item.json.source }}",
+            "stage": "={{ $('Normalize Event').item.json.stage }}"
+          }
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        1136,
+        400
+      ],
+      "name": "Create User"
+    },
+    {
+      "parameters": {
+        "dataTableId": "lead_magnet_users",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "stage": "={{ $('Normalize Event').item.json.stage }}",
+            "updated_at": "={{ $now }}"
+          }
+        },
+        "matchingColumns": [
+          "user_id"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        1136,
+        208
+      ],
+      "name": "Update User"
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch"
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1360,
+        304
+      ],
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "content": "## Lead Magnet Bot\n\nУниверсальный шаблон для выдачи лид-магнитов:\n\n1. ✅ Normalize Event\n2. ✅ Upsert User\n3. Check Subscription\n4. Deliver Asset\n5. Segment Question\n6. Follow-up\n7. CTA"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        224,
+        144
+      ],
+      "typeVersion": 1,
+      "name": "Sticky Note"
+    }
+  ],
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Normalize Event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Event": {
+      "main": [
+        [
+          {
+            "node": "Get User",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get User": {
+      "main": [
+        [
+          {
+            "node": "User Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User Exists?": {
+      "main": [
+        [
+          {
+            "node": "Update User",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create User",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create User": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Update User": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
