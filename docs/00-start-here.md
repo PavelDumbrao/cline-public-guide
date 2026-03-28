@@ -98,19 +98,19 @@ MCP-серверы дают агенту доступ к внешним серв
 Не нужно ставить всё сразу. Вот рабочий минимум, с которого стоит начать:
 
 ### Rules (5–7 файлов)
-- `ai/rules/01-core-language-style.md` — язык, стиль, базовое поведение
-- `ai/rules/02-documentation-search.md` — когда и как искать документацию
-- `ai/rules/05-search-tools.md` — какой инструмент поиска для какой задачи
-- `ai/rules/06-code-quality.md` — качество кода и обработка ошибок
-- `ai/rules/07-tool-usage.md` — как правильно использовать инструменты
-- `ai/rules/08-skills-management.md` — управление скиллами
-- `ai/rules/SOUL_TEMPLATE.md` — базовый характер агента
+- [`ai/rules/01-core-language-style.md`](../ai/rules/01-core-language-style.md) — язык, стиль, базовое поведение
+- [`ai/rules/02-documentation-search.md`](../ai/rules/02-documentation-search.md) — когда и как искать документацию
+- [`ai/rules/05-search-tools.md`](../ai/rules/05-search-tools.md) — какой инструмент поиска для какой задачи
+- [`ai/rules/06-code-quality.md`](../ai/rules/06-code-quality.md) — качество кода и обработка ошибок
+- [`ai/rules/07-tool-usage.md`](../ai/rules/07-tool-usage.md) — как правильно использовать инструменты
+- [`ai/rules/08-skills-management.md`](../ai/rules/08-skills-management.md) — управление скиллами
+- [`ai/rules/SOUL_TEMPLATE.md`](../ai/rules/SOUL_TEMPLATE.md) — базовый характер агента
 
 ### Skills (3–4 скилла)
-- `systematic-debugging` — отладка по системе, а не методом тыка
-- `frontend-design` — если работаешь с UI
-- `deployment-guide` — деплой без паники
-- `local-code-search` — поиск по своей кодовой базе
+- [`systematic-debugging`](../ai/skills/systematic-debugging/SKILL.md) — отладка по системе, а не методом тыка
+- [`frontend-design`](../ai/skills/frontend-design/SKILL.md) — если работаешь с UI
+- [`deployment-guide`](../ai/skills/deployment-guide/SKILL.md) — деплой без паники
+- [`local-code-search`](../ai/skills/local-code-search/SKILL.md) — поиск по своей кодовой базе
 
 ### MCP (2–3 сервера)
 - `context7` — документация библиотек в реальном времени
