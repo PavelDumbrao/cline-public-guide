@@ -24,3 +24,19 @@
 ## Smoke test public repo sanitation
 - «Проведи проверку repo: нет ли токенов, IP, доменов, credentials или private-only материалов.»
 - «Проверь, не перепутаны ли Cline workflows и n8n examples.»
+
+## Smoke test model strategy
+- «Подскажи, какую роль модели выбрать для этой задачи: рабочая, reasoning или ревью?»
+- «Скажи, где здесь не нужна дорогая модель и почему.»
+
+## Smoke test context / compact
+- «Сделай короткий handoff summary по текущей задаче.»
+- «Скажи, пора ли сокращать контекст, и если да — почему.»
+
+## Smoke test browser safety
+- «Оцени, нужен ли здесь browser automation и можно ли обойтись read-only сценарием.»
+- «Скажи, какие browser actions в этой задаче требуют явной команды пользователя.»
+
+## Smoke test model recovery
+- «Представь, что модель ушла в drift. Какие 3 первых recovery шага ты сделаешь?»
+- «Когда здесь лучше остановиться и начать новую сессию вместо продолжения текущего чата?»
