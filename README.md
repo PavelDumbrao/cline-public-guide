@@ -1,94 +1,124 @@
 # Cline Public Guide
 
-Публичный, обезличенный и новичковый репозиторий по настройке Cline.
-
-Этот репозиторий собран как **шаблон**, а не как копия живой системы автора.
-Здесь нет секретов, приватных URL, токенов, IP-адресов и личной инфраструктуры.
-
-## Куда идти дальше
-
-### Я новичок
-1. Открой `docs/00-start-here.md`
-2. Сразу потом `docs/13-install-and-adapt.md`
-3. Потом `docs/15-example-prompts-and-calls.md`
-4. Потом `docs/01-cline-mental-model.md`
-5. Потом `docs/07-mcp-guide-human.md`
-6. И для практики — `examples/prompts/smoke-tests.md`
-
-### Я уже что-то настраивал
-1. Открой `docs/02-official-vs-pavel-setup.md`
-2. Потом `docs/03-rules-guide-human.md`
-3. Потом `docs/11-best-practices.md`
-4. Потом `docs/14-validation-checklists.md`
-
-### Я хочу только перенести rules / skills
-- Rules: `ai/rules/`
-- Skills: `ai/skills/`
-- Хуки: `ai/hooks/`
-- Порядок переноса: `docs/13-install-and-adapt.md`
-
-### Я хочу собрать систему с нуля
-1. `docs/00-start-here.md`
-2. `docs/13-install-and-adapt.md`
-3. `docs/15-example-prompts-and-calls.md`
-4. `docs/07-mcp-guide-human.md`
-5. `ai/README_FOR_CLINE.md`
-6. `REPORT.md`
-
-### Я хочу использовать GPT + Cline связку
-- `docs/09-gpt-cline-collaboration.md`
-
-### Я работаю через n8n / Telegram / Mini Apps
-- `docs/12-n8n-workflow-examples.md`
-- `ai/skills/n8n-http-request/`
-- `ai/skills/n8n-workflow-patterns/`
-- `ai/skills/n8n-validation/`
-- `ai/skills/telegram-mini-apps-safe/`
+> Создано специально для учеников клуба **ProAiCommunity**
 
 ---
 
-## Важно: не путай сущности
+## Что это и зачем тебе это нужно
 
-| Сущность | Что это | Где в репозитории |
+Ты только начинаешь работать с Cline — AI-помощником внутри VS Code.
+Или уже работаешь, но хаотично: результаты непредсказуемые, агент делает что-то не то, контекст теряется.
+
+**Этот репозиторий решает именно эту проблему.**
+
+Здесь собрана система настройки Cline — та самая, которую мы используем в клубе ProAiCommunity для реальных проектов: автоматизации, AI-агентов, n8n, Telegram-ботов и всего остального.
+
+Всё обезличено и готово к использованию. Никаких личных токенов, IP и секретов — только структура, правила и примеры, которые ты адаптируешь под себя.
+
+---
+
+## С чего начать — зависит от тебя
+
+### Я первый раз слышу про Cline
+Добро пожаловать. Иди по порядку, не прыгай:
+
+1. [`docs/00-start-here.md`](docs/00-start-here.md) — точка входа. Что такое Cline и как думать о нём правильно.
+2. [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md) — установка и адаптация под себя.
+3. [`docs/15-example-prompts-and-calls.md`](docs/15-example-prompts-and-calls.md) — живые примеры промптов.
+4. [`docs/01-cline-mental-model.md`](docs/01-cline-mental-model.md) — как на самом деле работает агент.
+5. [`docs/07-mcp-guide-human.md`](docs/07-mcp-guide-human.md) — MCP серверы: что это и зачем.
+6. [`examples/prompts/smoke-tests.md`](examples/prompts/smoke-tests.md) — проверь, что всё работает.
+
+### Я уже настраивал Cline, хочу улучшить
+1. [`docs/02-official-vs-pavel-setup.md`](docs/02-official-vs-pavel-setup.md) — сравнение официального и продвинутого подхода.
+2. [`docs/03-rules-guide-human.md`](docs/03-rules-guide-human.md) — как писать правила, которые реально работают.
+3. [`docs/11-best-practices.md`](docs/11-best-practices.md) — лучшие практики из реальных проектов.
+4. [`docs/14-validation-checklists.md`](docs/14-validation-checklists.md) — чек-листы для самопроверки.
+
+### Мне нужно только скопировать rules / skills
+Бери напрямую:
+- Правила: [`ai/rules/`](ai/rules/)
+- Скиллы: [`ai/skills/`](ai/skills/)
+- Хуки: [`ai/hooks/`](ai/hooks/)
+- Как адаптировать: [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md)
+
+### Хочу собрать систему с нуля, по-взрослому
+1. [`docs/00-start-here.md`](docs/00-start-here.md)
+2. [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md)
+3. [`docs/15-example-prompts-and-calls.md`](docs/15-example-prompts-and-calls.md)
+4. [`docs/07-mcp-guide-human.md`](docs/07-mcp-guide-human.md)
+5. [`ai/README_FOR_CLINE.md`](ai/README_FOR_CLINE.md)
+6. [`REPORT.md`](REPORT.md)
+
+### Работаю с n8n, Telegram или Mini Apps
+- [`docs/12-n8n-workflow-examples.md`](docs/12-n8n-workflow-examples.md)
+- [`ai/skills/n8n-http-request/`](ai/skills/n8n-http-request/)
+- [`ai/skills/n8n-workflow-patterns/`](ai/skills/n8n-workflow-patterns/)
+- [`ai/skills/n8n-validation/`](ai/skills/n8n-validation/)
+- [`ai/skills/telegram-mini-apps-safe/`](ai/skills/telegram-mini-apps-safe/)
+
+---
+
+## Главное, что нужно понять про сущности
+
+Часто путают — давай разберёмся раз и навсегда:
+
+| Сущность | Что это на самом деле | Где лежит |
 |---|---|---|
-| Rule | Правило поведения AI | `ai/rules/` |
-| Skill | Специализированная инструкция для конкретной задачи | `ai/skills/` |
-| Hook | Bash-скрипт, который срабатывает на событиях Cline | `ai/hooks/` |
-| Cline Workflow | Markdown-процесс для Cline | `ai/workflows/` |
-| n8n Workflow | JSON-файл для импорта в n8n | `examples/n8n/` |
+| **Rule** | Постоянное правило поведения агента. Работает всегда. | `ai/rules/` |
+| **Skill** | Специализированная инструкция для конкретной задачи. Активируется по запросу. | `ai/skills/` |
+| **Hook** | Bash-скрипт, который срабатывает на событиях Cline (старт задачи, завершение и т.д.) | `ai/hooks/` |
+| **Cline Workflow** | Markdown-процесс — инструкция для агента по сложной многошаговой задаче | `ai/workflows/` |
+| **n8n Workflow** | JSON-файл для импорта в n8n. К Cline прямого отношения не имеет. | `examples/n8n/` |
 
-**Cline Workflows и n8n workflows — это разные вещи.**
+> Cline Workflows и n8n Workflows — **это принципиально разные вещи**. Не путай.
 
 ---
 
 ## Структура репозитория
 
-```text
+```
 cline-public-guide/
-├── README.md
-├── REPORT.md
-├── docs/
+├── README.md               ← ты здесь
+├── REPORT.md               ← как и зачем это всё создавалось
+├── docs/                   ← человекочитаемые гайды
 ├── ai/
-│   ├── README_FOR_CLINE.md
-│   ├── rules/
-│   ├── skills/
-│   ├── hooks/
-│   └── workflows/
+│   ├── README_FOR_CLINE.md ← инструкция для самого агента
+│   ├── rules/              ← правила поведения (rules)
+│   ├── skills/             ← специализированные навыки
+│   ├── hooks/              ← хуки на события
+│   └── workflows/          ← процессы для сложных задач
 └── examples/
-    ├── n8n/
-    ├── prompts/
-    └── templates/
+    ├── n8n/                ← примеры n8n workflows
+    ├── prompts/            ← примеры промптов
+    └── templates/          ← шаблоны
 ```
 
 ---
 
-## Что здесь сознательно НЕ включено
+## Что сознательно не включено
 
-- личный `USER.md`
-- личный `tech-stack.md`
-- приватные incident notes
-- реальные Telegram токены
-- реальные VPS/IP/domain
-- живые credential-блоки из workflow JSON
+Это публичный репозиторий — шаблон, а не копия живой системы.
+Поэтому здесь нет:
 
-Если ты хочешь использовать этот репозиторий у себя, **адаптируй всё под свои значения**.
+- личного `USER.md` (у тебя он будет свой)
+- личного `tech-stack.md` (твой стек — твои правила)
+- реальных токенов, IP, доменов
+- приватных заметок об инцидентах
+- живых credential-блоков из workflow JSON
+
+**Всё это ты добавишь сам, под свою систему.**
+
+---
+
+## Почему именно такая система
+
+Этот репозиторий — результат месяцев реальной работы с Cline в клубе ProAiCommunity.
+Мы проходили через хаос, нестабильные результаты, потерянный контекст и агентов, которые делали не то.
+Вся эта система — дистилляция того, что реально работает.
+
+Теперь она твоя. Бери, адаптируй, используй.
+
+---
+
+*ProAiCommunity — клуб практиков, которые строят с AI, а не наблюдают со стороны.*
