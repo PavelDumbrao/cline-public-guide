@@ -113,6 +113,34 @@
 - если он добавляет сложность без пользы
 - если вызывает проблемы с безопасностью
 
+
+## E. Проверка install path / visibility
+
+### Зачем нужен
+Чтобы отличать кейс «файл записан» от кейса «Cline реально видит слой».
+
+### Что проверить до включения
+- path определён осознанно?
+- scope выбран правильно: global или workspace?
+- есть план visibility check после записи?
+
+### Что проверить после включения
+- файл прочитан обратно?
+- слой реально влияет на поведение?
+- MCP / skill / hook реально вызывается, а не просто существует на диске?
+
+### Красные флаги
+- слой записан, но поведение не изменилось
+- в config есть запись, но runtime её игнорирует
+- непонятно, какой runtime вообще читает этот path
+
+### Когда откатывать
+- если уже непонятно, какой именно слой сломал setup
+- если visibility check не пройден, а поверх уже добавлены новые слои
+
+> Для таких кейсов используй ещё [`docs/25-cross-platform-installation-paths.md`](25-cross-platform-installation-paths.md) и [`docs/27-setup-self-check-and-recovery.md`](27-setup-self-check-and-recovery.md).
+
+
 ---
 
 ## ✅ Общий чек-лист для самопроверки
@@ -127,3 +155,5 @@
 - Для rules — [`03-rules-guide-human.md`](03-rules-guide-human.md)
 - Для MCP — [`07-mcp-guide-human.md`](07-mcp-guide-human.md)
 - Для примеров запросов — [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md)
+- Для путей и visibility check — [`25-cross-platform-installation-paths.md`](25-cross-platform-installation-paths.md)
+- Для recovery — [`27-setup-self-check-and-recovery.md`](27-setup-self-check-and-recovery.md)

@@ -144,6 +144,18 @@ https://github.com/PavelDumbrao/cline-public-guide
 **Хорошо:**
 `Изучи этот репозиторий как шаблон и по шагам помоги мне создать свой рабочий setup: rules, skills, MCP и hooks, с проверкой после каждого этапа.`
 
+
+## L. Как попросить AI безопасно установить setup по этому repo
+
+### Строгий вариант
+- «Используй mega-prompt установщика из [`docs/26-mega-prompt-for-ai-installer.md`](26-mega-prompt-for-ai-installer.md) и работай только слоями с visibility check после каждого батча.»
+- «Сначала определи ОС и runtime, потом реши global vs workspace, потом ставь layers маленькими батчами и проверяй, что Cline реально их видит.»
+
+### Если есть риск wrong-path кейса
+- «Перед записью файлов используй path-логику из [`docs/25-cross-platform-installation-paths.md`](25-cross-platform-installation-paths.md). Если не уверен в пути — остановись и уточни.»
+- «Если слой уже записан, но не видно, не продолжай. Используй recovery flow из [`docs/27-setup-self-check-and-recovery.md`](27-setup-self-check-and-recovery.md).»
+
+
 ---
 
 ## ✅ Чек-лист для самопроверки
@@ -159,3 +171,6 @@ https://github.com/PavelDumbrao/cline-public-guide
 - Для стартовой системы — [`00-start-here.md`](00-start-here.md)
 - Для проверок — [`14-validation-checklists.md`](14-validation-checklists.md)
 - Для MCP — [`07-mcp-guide-human.md`](07-mcp-guide-human.md)
+- Для strict install prompt — [`26-mega-prompt-for-ai-installer.md`](26-mega-prompt-for-ai-installer.md)
+- Для путей и visibility — [`25-cross-platform-installation-paths.md`](25-cross-platform-installation-paths.md)
+- Для recovery — [`27-setup-self-check-and-recovery.md`](27-setup-self-check-and-recovery.md)
