@@ -1,5 +1,12 @@
 # 01. Cline Mental Model
 
+Сначала полезно прочитать:
+- [`00-start-here.md`](00-start-here.md) — если ты только входишь в тему
+- [`23-system-map-rules-skills-hooks-mcp.md`](23-system-map-rules-skills-hooks-mcp.md) — если хочешь увидеть всю систему сверху
+- [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь сразу увидеть живые примеры запросов
+
+---
+
 ## Роль Cline
 Cline удобно мыслить как **исполнителя**.
 
@@ -70,3 +77,10 @@ Cline удобно мыслить как **исполнителя**.
 
 ## Главная ошибка новичка
 Путать эти уровни и пытаться засунуть всё в rules.
+
+---
+
+## Куда идти дальше
+- Для следующего шага — [`23-system-map-rules-skills-hooks-mcp.md`](23-system-map-rules-skills-hooks-mcp.md) — чтобы увидеть всю карту системы
+- Для следующего шага — [`03-rules-guide-human.md`](03-rules-guide-human.md) — чтобы перейти к always-on слою
+- Для следующего шага — [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — чтобы увидеть, как это превращается в реальные запросы

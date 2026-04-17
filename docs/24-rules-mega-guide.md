@@ -1,5 +1,12 @@
 # 24. Rules Mega Guide
 
+Сначала полезно прочитать:
+- [`03-rules-guide-human.md`](03-rules-guide-human.md) — если сначала хочешь понять rules простыми словами
+- [`13-install-and-adapt.md`](13-install-and-adapt.md) — если проходишь repo не только ради теории, но и ради переноса под себя
+- [`14-validation-checklists.md`](14-validation-checklists.md) — если хочешь параллельно проверять себя по чек-листам
+
+---
+
 > Это пошаговый мегагайд по rules. Идём не хаотично, а по порядку: сначала база, потом `01`, потом `02` и так далее.
 
 ---
@@ -3049,3 +3056,10 @@ TECH_STACK_TEMPLATE адаптирован.
 - templates: SOUL / USER / TECH_STACK.
 
 Следующим шагом после этого блока должен идти cross-platform install слой, затем mega-prompt, self-check/recovery и финальная связка ссылок.
+
+---
+
+## Куда идти дальше
+- Для следующего шага — [`25-cross-platform-installation-paths.md`](25-cross-platform-installation-paths.md) — чтобы понять, куда всё это потом класть
+- Для следующего шага — [`26-mega-prompt-for-ai-installer.md`](26-mega-prompt-for-ai-installer.md) — чтобы дать всё это своему Cline как задание
+- Для следующего шага — [`27-setup-self-check-and-recovery.md`](27-setup-self-check-and-recovery.md) — чтобы потом доказать, что слой реально заработал

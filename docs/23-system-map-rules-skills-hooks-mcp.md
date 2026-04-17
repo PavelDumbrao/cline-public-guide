@@ -1,5 +1,12 @@
 # 23. System Map: Rules, Skills, Hooks, MCP, Workflows
 
+Сначала полезно прочитать:
+- [`00-start-here.md`](00-start-here.md) — если тебе сначала нужна база
+- [`03-rules-guide-human.md`](03-rules-guide-human.md) — если хочешь отдельно пройти слой rules
+- [`13-install-and-adapt.md`](13-install-and-adapt.md) — если уже думаешь про перенос setup под себя
+
+---
+
 > Этот файл нужен, чтобы ученик увидел **всю систему целиком**, а не отдельные куски по разным документам.
 
 ---

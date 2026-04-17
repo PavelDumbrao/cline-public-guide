@@ -1,5 +1,12 @@
 # 21. Learning Path for Students
 
+Сначала полезно прочитать:
+- [`00-start-here.md`](00-start-here.md) — если ты только начинаешь
+- [`13-install-and-adapt.md`](13-install-and-adapt.md) — если уже хочешь переносить систему под себя
+- [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь учиться через реальные запросы к Cline
+
+---
+
 ## Шаг 1. Понять сущности
 ### Что изучить
 - rules
@@ -170,3 +177,10 @@
 
 ### Типичный провал
 Файлы записаны, а ученик считает задачу закрытой, хотя visibility check даже не делался.
+
+---
+
+## Куда идти дальше
+- Для следующего шага — [`13-install-and-adapt.md`](13-install-and-adapt.md) — если ты уже готов переносить систему под себя
+- Для следующего шага — [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь учиться через практику и запросы
+- Для следующего шага — [`22-zoom-session-summary.md`](22-zoom-session-summary.md) — если хочешь закрепить это через разбор и запись

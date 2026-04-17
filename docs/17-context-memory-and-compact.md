@@ -1,5 +1,12 @@
 # 17. Context, Memory and Compact
 
+Сначала полезно прочитать:
+- [`00-start-here.md`](00-start-here.md) — если тебе сначала нужна база
+- [`10-troubleshooting.md`](10-troubleshooting.md) — если в работе уже начался хаос
+- [`20-model-glitches-and-recovery.md`](20-model-glitches-and-recovery.md) — если модель уже поплыла из-за перегруза
+
+---
+
 ## Почему длинный контекст дорогой
 Чем длиннее чат, тем:
 - больше токенов сгорает;
@@ -129,3 +136,10 @@ Memory bank нужен не для хранения всего подряд, а 
 - заранее режет giant-input кейсы;
 - сохраняет сырые результаты вне основного рабочего контекста;
 - поднимает recovery bundle автоматически.
+
+---
+
+## Куда идти дальше
+- Для следующего шага — [`20-model-glitches-and-recovery.md`](20-model-glitches-and-recovery.md) — если перегруз уже начал ломать работу
+- Для следующего шага — [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь увидеть примеры handoff и compact запросов
+- Для следующего шага — [`21-learning-path-for-students.md`](21-learning-path-for-students.md) — если хочешь идти по учебному маршруту дальше

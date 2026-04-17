@@ -1,5 +1,12 @@
 # 🚦 Начни здесь
 
+Сначала полезно прочитать:
+- [`01-cline-mental-model.md`](01-cline-mental-model.md) — как правильно думать о роли Cline
+- [`23-system-map-rules-skills-hooks-mcp.md`](23-system-map-rules-skills-hooks-mcp.md) — как увидеть всю систему целиком
+- [`21-learning-path-for-students.md`](21-learning-path-for-students.md) — как идти по обучению шаг за шагом
+
+---
+
 > Этот файл — твоя точка входа. Прочитай его целиком, прежде чем что-то трогать.
 
 ---
@@ -224,3 +231,11 @@ Context7 и Tavily — через настройки Cline → MCP Servers. Ин
 ---
 
 *Если что-то непонятно — это нормально. Именно для этого существует клуб ProAiCommunity.*
+
+---
+
+## Куда идти дальше
+- Для следующего шага — [`01-cline-mental-model.md`](01-cline-mental-model.md) — если хочешь глубже понять роль Cline
+- Для следующего шага — [`23-system-map-rules-skills-hooks-mcp.md`](23-system-map-rules-skills-hooks-mcp.md) — если хочешь увидеть всю систему целиком
+- Для следующего шага — [`13-install-and-adapt.md`](13-install-and-adapt.md) — если уже хочешь переносить setup под себя
+- Для следующего шага — [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь сразу перейти к готовым запросам

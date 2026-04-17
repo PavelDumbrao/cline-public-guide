@@ -1,5 +1,12 @@
 # 04. Skills Guide
 
+Сначала полезно прочитать:
+- [`00-start-here.md`](00-start-here.md) — если тебе сначала нужна база
+- [`03-rules-guide-human.md`](03-rules-guide-human.md) — чтобы не путать skills и rules
+- [`23-system-map-rules-skills-hooks-mcp.md`](23-system-map-rules-skills-hooks-mcp.md) — если хочешь увидеть всю карту системы
+
+---
+
 ## Что такое skill
 Skill — это модуль знаний для отдельного типа задач.
 
@@ -85,3 +92,10 @@ Skill оправдан, если одновременно выполняются
 - [ ] есть «когда не использовать»
 - [ ] нет секретов и личной инфраструктуры
 - [ ] нет дублирования existing skills и rules
+
+---
+
+## Куда идти дальше
+- Для следующего шага — [`05-hooks-guide-human.md`](05-hooks-guide-human.md) — если хочешь понять следующий слой автоматики
+- Для следующего шага — [`06-cline-workflows-guide-human.md`](06-cline-workflows-guide-human.md) — если хочешь перейти к повторяемым процессам
+- Для следующего шага — [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь увидеть примеры запросов для skills

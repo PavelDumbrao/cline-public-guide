@@ -1,5 +1,12 @@
 # 06. Cline Workflows Guide
 
+Сначала полезно прочитать:
+- [`00-start-here.md`](00-start-here.md) — если тебе сначала нужна база
+- [`04-skills-guide-human.md`](04-skills-guide-human.md) — чтобы не путать workflows и skills
+- [`23-system-map-rules-skills-hooks-mcp.md`](23-system-map-rules-skills-hooks-mcp.md) — если хочешь увидеть роль workflow во всей системе
+
+---
+
 ## Что такое Cline Workflow
 Cline Workflow — это markdown-файл, который описывает **процесс работы самого Cline**.
 
@@ -102,3 +109,10 @@ Workflow нужен, если процедура:
 - [ ] он не дублирует skill и не пытается заменить rules
 - [ ] по нему можно пройти без телепатии
 - [ ] он помогает не забывать критичные действия
+
+---
+
+## Куда идти дальше
+- Для следующего шага — [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь увидеть, как звать workflow в работе
+- Для следующего шага — [`13-install-and-adapt.md`](13-install-and-adapt.md) — если хочешь собирать систему под себя
+- Для следующего шага — [`10-troubleshooting.md`](10-troubleshooting.md) — если workflow уже запутал, а не упростил работу

@@ -1,5 +1,12 @@
 # 19. Browser Automation Safety
 
+Сначала полезно прочитать:
+- [`07-mcp-guide-human.md`](07-mcp-guide-human.md) — если хочешь понять, зачем вообще нужен Playwright
+- [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь увидеть примеры запросов для browser automation
+- [`18-cline-ui-map.md`](18-cline-ui-map.md) — если хочешь понять, где это искать в интерфейсе
+
+---
+
 ## Зачем нужен browser automation
 Browser automation полезен, когда нужно:
 - проверить UI после изменений;
@@ -80,3 +87,10 @@ Browser automation полезен, когда нужно:
 - логин в важный аккаунт
 - действия с оплатой, доступами, удалением, публикацией
 - любые необратимые действия
+
+---
+
+## Куда идти дальше
+- Для следующего шага — [`18-cline-ui-map.md`](18-cline-ui-map.md) — если хочешь понять, где это находится в интерфейсе
+- Для следующего шага — [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь готовые формулировки для Cline
+- Для следующего шага — [`10-troubleshooting.md`](10-troubleshooting.md) — если browser automation уже начал создавать проблемы

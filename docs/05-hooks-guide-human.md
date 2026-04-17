@@ -1,5 +1,12 @@
 # 05. Hooks Guide
 
+Сначала полезно прочитать:
+- [`00-start-here.md`](00-start-here.md) — если ты только входишь в тему
+- [`03-rules-guide-human.md`](03-rules-guide-human.md) — чтобы не путать hooks и rules
+- [`04-skills-guide-human.md`](04-skills-guide-human.md) — чтобы не путать hooks и skills
+
+---
+
 ## Что такое hook
 Hook — это скрипт, который запускается на событии Cline.
 
@@ -85,3 +92,10 @@ Hooks особенно полезны, когда нужно защитить к
 - он и блокирует, и логирует, и роутит, и чинит всё подряд;
 - его невозможно безопасно тестировать малыми сценариями;
 - его проще выключить, чем понять.
+
+---
+
+## Куда идти дальше
+- Для следующего шага — [`06-cline-workflows-guide-human.md`](06-cline-workflows-guide-human.md) — если хочешь перейти к workflows
+- Для следующего шага — [`14-validation-checklists.md`](14-validation-checklists.md) — если хочешь проверять setup через чек-листы
+- Для следующего шага — [`13-install-and-adapt.md`](13-install-and-adapt.md) — если думаешь, когда и как переносить hooks под себя

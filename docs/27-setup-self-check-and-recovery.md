@@ -1,5 +1,12 @@
 # 27. Setup Self-Check and Recovery
 
+Сначала полезно прочитать:
+- [`25-cross-platform-installation-paths.md`](25-cross-platform-installation-paths.md) — если сначала хочешь понять, куда класть файлы
+- [`26-mega-prompt-for-ai-installer.md`](26-mega-prompt-for-ai-installer.md) — если хочешь увидеть сам install-промпт для агента
+- [`14-validation-checklists.md`](14-validation-checklists.md) — если хочешь дополнительно проверять себя по чек-листам
+
+---
+
 > Этот файл нужен, чтобы ученик и AI-установщик различали две разные вещи:
 > **«файл записан»** и **«Cline реально видит и использует этот слой»**.
 

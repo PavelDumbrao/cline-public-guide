@@ -1,5 +1,12 @@
 # 25. Cross-Platform Installation Paths
 
+Сначала полезно прочитать:
+- [`13-install-and-adapt.md`](13-install-and-adapt.md) — если ты уже дошёл до этапа переноса setup
+- [`24-rules-mega-guide.md`](24-rules-mega-guide.md) — если до этого проходил rules по порядку
+- [`23-system-map-rules-skills-hooks-mcp.md`](23-system-map-rules-skills-hooks-mcp.md) — если хочешь держать в голове всю карту системы
+
+---
+
 > Этот файл нужен, чтобы ученик и AI-установщик **не угадывали пути** для rules, skills, hooks, workflows и MCP, а сначала определяли ОС, тип окружения и только потом записывали файлы.
 
 ---

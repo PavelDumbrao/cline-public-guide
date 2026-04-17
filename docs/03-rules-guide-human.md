@@ -1,5 +1,12 @@
 # 03. Rules Guide
 
+Сначала полезно прочитать:
+- [`00-start-here.md`](00-start-here.md) — если тебе сначала нужна база
+- [`23-system-map-rules-skills-hooks-mcp.md`](23-system-map-rules-skills-hooks-mcp.md) — если хочешь увидеть место rules во всей системе
+- [`24-rules-mega-guide.md`](24-rules-mega-guide.md) — если хочешь проходить rules по порядку
+
+---
+
 ## Что такое rule
 Rule — это постоянная инструкция для AI.
 Она говорит агенту, как вести себя и каких принципов придерживаться.
@@ -140,3 +147,10 @@ Workflow описывает повторяемую процедуру,
 - [ ] оно помогает принимать решения, а не только «красиво звучит»
 - [ ] оно не дублирует skill, hook или workflow
 - [ ] его можно проверить через простой smoke test
+
+---
+
+## Куда идти дальше
+- Для следующего шага — [`24-rules-mega-guide.md`](24-rules-mega-guide.md) — если хочешь идти по rules последовательно
+- Для следующего шага — [`14-validation-checklists.md`](14-validation-checklists.md) — если хочешь проверять rule-слой чек-листами
+- Для следующего шага — [`04-skills-guide-human.md`](04-skills-guide-human.md) — если хочешь потом перейти к skills

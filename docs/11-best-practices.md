@@ -1,5 +1,12 @@
 # 11. Best Practices
 
+Сначала полезно прочитать:
+- [`00-start-here.md`](00-start-here.md) — если тебе сначала нужна база
+- [`13-install-and-adapt.md`](13-install-and-adapt.md) — если ты уже переносишь систему под себя
+- [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь увидеть, как это превращается в реальные запросы
+
+---
+
 ## 1. Не копируй чужой tech stack вслепую
 Чужая система может быть сильной, но она выросла под другой контекст.
 
@@ -25,3 +32,10 @@
 - GPT/Perplexity = архитектор
 - Cline = исполнитель
 - человек = финальный контролёр
+
+---
+
+## Куда идти дальше
+- Для следующего шага — [`13-install-and-adapt.md`](13-install-and-adapt.md) — если хочешь переводить best practices в свой setup
+- Для следующего шага — [`14-validation-checklists.md`](14-validation-checklists.md) — если хочешь закрепить это через проверки
+- Для следующего шага — [`21-learning-path-for-students.md`](21-learning-path-for-students.md) — если хочешь двигаться по учебному маршруту дальше
