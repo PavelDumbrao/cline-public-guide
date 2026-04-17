@@ -20,6 +20,24 @@
 
 - **Запись Zoom:** https://fathom.video/share/GE2P2_FL3eW6RxGEANzLCYdP8sZTJadJ
 
+## 🧩 Дополнительный личный разбор
+
+Если хочешь посмотреть не только общую встречу, но и **живой личный разбор с учеником**, вот ещё полезная запись:
+
+- **Личный разбор с Романом:** https://fathom.video/share/Vnk7oa2YSVshRxY5CvNrqAs94sEW6haH
+
+Что в ней особенно полезно:
+- как вживую запускать установку через мега-промпт;
+- где ученик реально путается в интерфейсе Cline;
+- как агент ошибается с rules / skills / MCP и как это дожимать;
+- почему нельзя верить слову «готово», пока не увидел результат в интерфейсе;
+- как на практике проверять GitHub MCP, токены, Configured и skills path.
+
+Эта запись особенно полезна после чтения:
+- [`26-mega-prompt-for-ai-installer.md`](26-mega-prompt-for-ai-installer.md)
+- [`18-cline-ui-map.md`](18-cline-ui-map.md)
+- [`13-install-and-adapt.md`](13-install-and-adapt.md)
+
 ---
 
 ## ⏱️ Таймкоды встречи
