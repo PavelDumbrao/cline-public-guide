@@ -126,12 +126,14 @@ https://github.com/PavelDumbrao/cline-public-guide
 ### Я первый раз слышу про Cline
 Добро пожаловать. Иди по порядку, не прыгай:
 
-1. [`docs/00-start-here.md`](docs/00-start-here.md) — точка входа. Что такое Cline и как думать о нём правильно.
-2. [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md) — установка и адаптация под себя.
-3. [`docs/15-example-prompts-and-calls.md`](docs/15-example-prompts-and-calls.md) — живые примеры промптов.
-4. [`docs/01-cline-mental-model.md`](docs/01-cline-mental-model.md) — как на самом деле работает агент.
-5. [`docs/07-mcp-guide-human.md`](docs/07-mcp-guide-human.md) — MCP серверы: что это и зачем.
-6. [`examples/prompts/smoke-tests.md`](examples/prompts/smoke-tests.md) — проверь, что всё работает.
+1. [`docs/00-start-here.md`](docs/00-start-here.md) — точка входа. Что такое Cline и почему здесь нельзя копировать всё подряд.
+2. [`docs/01-cline-mental-model.md`](docs/01-cline-mental-model.md) — как правильно думать о роли Cline.
+3. [`docs/23-system-map-rules-skills-hooks-mcp.md`](docs/23-system-map-rules-skills-hooks-mcp.md) — как увидеть всю систему целиком.
+4. [`docs/21-learning-path-for-students.md`](docs/21-learning-path-for-students.md) — как идти по обучению шаг за шагом.
+5. [`docs/07-mcp-guide-human.md`](docs/07-mcp-guide-human.md) — какие внешние инструменты реально нужны, а какие пока не трогать.
+6. [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md) — как переносить систему под себя без хаоса.
+7. [`docs/15-example-prompts-and-calls.md`](docs/15-example-prompts-and-calls.md) — готовые запросы и задания для твоего Cline.
+8. [`examples/prompts/smoke-tests.md`](examples/prompts/smoke-tests.md) — финальная проверка, что всё реально работает.
 
 ### Я уже настраивал Cline, хочу улучшить
 1. [`docs/02-official-vs-pavel-setup.md`](docs/02-official-vs-pavel-setup.md) — сравнение официального и продвинутого подхода.
@@ -148,12 +150,13 @@ https://github.com/PavelDumbrao/cline-public-guide
 
 ### Хочу собрать систему с нуля, по-взрослому
 1. [`docs/00-start-here.md`](docs/00-start-here.md)
-2. [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md)
-3. [`docs/15-example-prompts-and-calls.md`](docs/15-example-prompts-and-calls.md)
+2. [`docs/01-cline-mental-model.md`](docs/01-cline-mental-model.md)
+3. [`docs/23-system-map-rules-skills-hooks-mcp.md`](docs/23-system-map-rules-skills-hooks-mcp.md)
 4. [`docs/07-mcp-guide-human.md`](docs/07-mcp-guide-human.md)
-5. [`ai/README_FOR_CLINE.md`](ai/README_FOR_CLINE.md)
-6. [`REPORT.md`](REPORT.md)
-7. [`docs/23-system-map-rules-skills-hooks-mcp.md`](docs/23-system-map-rules-skills-hooks-mcp.md)
+5. [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md)
+6. [`docs/15-example-prompts-and-calls.md`](docs/15-example-prompts-and-calls.md)
+7. [`ai/README_FOR_CLINE.md`](ai/README_FOR_CLINE.md)
+8. [`REPORT.md`](REPORT.md)
 
 ### Хочу именно мега-гайд, чтобы увидеть систему целиком и по шагам
 Иди в таком порядке:

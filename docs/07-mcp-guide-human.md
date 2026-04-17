@@ -101,17 +101,25 @@ GitHub — это платформа, где хранят и развивают 
 | `n8n-mcp` | Работа с живым n8n-инстансом и workflows | Да, нужен доступ к твоему n8n instance | [n8n MCP docs](https://docs.n8n.io/advanced-ai/mcp/accessing-n8n-mcp-server/) · [Tools reference](https://docs.n8n.io/advanced-ai/mcp/mcp_tools_reference/) | Нужны URL и доступы твоего n8n-инстанса |
 | `hostinger-api` | Управление хостингом, DNS, доменами и VPS через Hostinger API | Да, нужен Hostinger account / API access | [Hostinger MCP support page](https://www.hostinger.com/support/11079316-hostinger-api-mcp-server) · [GitHub repo](https://github.com/hostinger/api-mcp-server) | Доступ берётся из твоего Hostinger account / API setup |
 
-## Must-have MCP для новичка
+## Базовый MCP-набор для большинства новичков
 - `context7` — документация библиотек
 - `tavily` — веб-поиск и research
-- `playwright` — браузер и UI-проверки
 
 ### Почему именно они
 - `context7` закрывает проблему устаревших догадок по библиотекам
 - `tavily` помогает искать актуальную информацию в вебе
-- `playwright` помогает не гадать по UI, а реально проверять страницу
+- этот набор даёт хорошую базу почти без лишней сложности
+
+### Когда сразу добавить Playwright
+Добавляй `playwright` не потому, что он модный, а только если тебе реально нужны:
+- сайты;
+- формы;
+- UI;
+- проверка страницы после изменений;
+- браузерные сценарии.
 
 ## Optional MCP
+- `playwright` — если работаешь с сайтами, интерфейсами и браузерными сценариями
 - `github` — если работаешь с GitHub
 - `exa` — если нужен чистый поиск
 - `cocoindex-code` — если у тебя большая локальная кодовая база
@@ -129,7 +137,7 @@ GitHub — это платформа, где хранят и развивают 
 ### Новичок
 - context7
 - tavily
-- playwright
+- опционально playwright, если есть UI или браузерные задачи
 
 ### Frontend / Fullstack
 - context7
@@ -208,7 +216,7 @@ Safest path такой:
 
 1. **Context7** — если нужен код, библиотека, API, SDK, фреймворк.
 2. **Tavily** — если нужен актуальный веб-поиск и general research.
-3. **Playwright** — если нужно реально проверить UI, форму, консоль, сеть.
+3. **Playwright** — только если тебе реально нужны UI, формы, браузер и проверка страницы.
 4. **GitHub** — если работаешь с репозиториями, PR, issues, code search.
 5. **Exa** — если нужен альтернативный чистый search/code context.
 6. **Infra-specific MCP** — только когда уже реально есть такой use-case.

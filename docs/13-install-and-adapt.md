@@ -15,8 +15,8 @@
 Сначала копируй только:
 - [`ai/rules/`](../ai/rules/)
 - 3–5 нужных элементов из [`ai/skills/`](../ai/skills/)
-- при необходимости [`ai/hooks/TaskStart`](../ai/hooks/TaskStart) и [`ai/hooks/PreToolUse`](../ai/hooks/PreToolUse)
 - 2–3 MCP из [`docs/07-mcp-guide-human.md`](07-mcp-guide-human.md)
+- hooks — только потом и только если ты уже понял, зачем они тебе нужны
 
 ## 2. Что не копировать буквально
 Нельзя копировать буквально:
@@ -107,12 +107,12 @@ Hooks клади только туда, где их реально читает 
 1. Возьми минимальный набор rules
 2. Положи rules в свой layout
 3. Положи 1–2 skills
-4. Подключи 1 hook
-5. Добавь 2–3 MCP
-6. Перезапусти Cline или заставь его перечитать setup
-7. Сделай smoke test на rules
-8. Сделай smoke test на skills
-9. Если всё ок — только потом расширяй систему
+4. Добавь 2–3 MCP
+5. Перезапусти Cline или заставь его перечитать setup
+6. Сделай smoke test на rules
+7. Сделай smoke test на skills
+8. Сделай smoke test на MCP
+9. Если всё ок — только потом, при реальной необходимости, подключай hooks
 
 ## 13. Что делать, если Cline “не видит” rules/skills/hooks
 Типовые причины:

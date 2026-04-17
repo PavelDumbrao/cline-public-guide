@@ -2,8 +2,8 @@
 
 Сначала полезно прочитать:
 - [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь сначала увидеть обычные примеры промптов
-- [`25-cross-platform-installation-paths.md`](25-cross-platform-installation-paths.md) — если сначала хочешь понять, куда вообще класть файлы
-- [`27-setup-self-check-and-recovery.md`](27-setup-self-check-and-recovery.md) — если хочешь сразу понимать, как потом проверять результат
+- [`25-cross-platform-installation-paths.md`](25-cross-platform-installation-paths.md) — это главный вход в install-layer: сначала пойми, куда вообще класть файлы
+- [`13-install-and-adapt.md`](13-install-and-adapt.md) — если хочешь сначала увидеть общий перенос системы простыми словами
 
 ---
 
