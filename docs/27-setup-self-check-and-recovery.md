@@ -247,6 +247,20 @@
 5. Один safe hook, если он подключался.
 6. Один browser/read-only сценарий, если есть Playwright.
 
+### Финальная таблица проверки
+Перед фразой «готово» полезно свести всё в простую таблицу:
+
+| Слой | Статус | Чем подтверждено |
+|---|---|---|
+| Rules | pass / fail | prompt + UI |
+| Skills | pass / fail | explicit call + UI |
+| MCP | pass / fail | tool call + Configured |
+| Hooks | pass / fail | event test |
+| Workflows | pass / fail | reusable process check |
+| USER.md / профиль пользователя | pass / fail | файл + read-back |
+
+Пока хотя бы один обязательный слой без подтверждения — setup не считается завершённым.
+
 ### Пример минимального финального набора
 - language/style prompt
 - docs lookup
