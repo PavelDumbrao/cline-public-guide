@@ -1,6 +1,12 @@
 # 28. Three-Level Planning in Cline
 
-Этот документ нужен для одной из самых частых проблем у учеников: 
+Если тебе пока тяжело и этот урок кажется слишком «техническим», сначала открой:
+- [`29-beginner-friendly-table-of-contents.md`](29-beginner-friendly-table-of-contents.md) — простая карта всех уроков
+- [`21-learning-path-for-students.md`](21-learning-path-for-students.md) — пошаговый учебный маршрут
+
+---
+
+Этот документ нужен для одной из самых частых проблем у учеников:
 они либо вообще не планируют длинную задачу, либо делают один гигантский TODO на всё сразу.
 
 Оба подхода ломают работу.
@@ -690,6 +696,7 @@ Deep-planning нужен тогда, когда задача:
 ---
 
 ## Что прочитать после этого
+- [`29-beginner-friendly-table-of-contents.md`](29-beginner-friendly-table-of-contents.md) — если хочешь снова увидеть общую карту уроков простым языком
 - [`17-context-memory-and-compact.md`](17-context-memory-and-compact.md) — если хочешь лучше понять, как планирование связано с памятью и compaction
 - [`21-learning-path-for-students.md`](21-learning-path-for-students.md) — если хочешь встроить этот навык в общий учебный маршрут
 - [`27-setup-self-check-and-recovery.md`](27-setup-self-check-and-recovery.md) — если хочешь научиться не только планировать, но и проверять, что setup реально работает

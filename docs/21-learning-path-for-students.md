@@ -1,10 +1,18 @@
 # 21. Learning Path for Students
 
+Если ты запутался в названиях файлов и не понимаешь, что читать первым — сначала открой:
+- [`29-beginner-friendly-table-of-contents.md`](29-beginner-friendly-table-of-contents.md) — простое оглавление и маршруты для новичка
+
 Сначала полезно прочитать:
 - [`00-start-here.md`](00-start-here.md) — если ты только начинаешь
 - [`13-install-and-adapt.md`](13-install-and-adapt.md) — если уже хочешь переносить систему под себя
 - [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь учиться через реальные запросы к Cline
 - [`28-three-level-planning-in-cline.md`](28-three-level-planning-in-cline.md) — если хочешь научиться вести длинные задачи без хаоса и путаницы в планах
+
+---
+
+> Этот документ — не просто список файлов. Это учебный маршрут.
+> Иди по шагам. Не пытайся пройти всё за один присест.
 
 ---
 
@@ -206,8 +214,24 @@
 
 ---
 
+## Как пользоваться этим маршрутом без перегруза
+
+Если коротко:
+- сначала пойми базовые сущности;
+- потом собери минимальный setup;
+- потом научись проверять, что он реально работает;
+- только потом лезь в более сложные маршруты, большие проекты и свои skills.
+
+Если чувствуешь, что потерялся:
+1. вернись в [`29-beginner-friendly-table-of-contents.md`](29-beginner-friendly-table-of-contents.md);
+2. потом снова открой этот learning path;
+3. выбери только один следующий шаг, а не пять сразу.
+
+---
+
 ## Куда идти дальше
 - Для следующего шага — [`13-install-and-adapt.md`](13-install-and-adapt.md) — если ты уже готов переносить систему под себя
 - Для следующего шага — [`15-example-prompts-and-calls.md`](15-example-prompts-and-calls.md) — если хочешь учиться через практику и запросы
 - Для следующего шага — [`22-zoom-session-summary.md`](22-zoom-session-summary.md) — если хочешь закрепить это через разбор и запись
 - Для следующего шага — [`28-three-level-planning-in-cline.md`](28-three-level-planning-in-cline.md) — если хочешь уверенно вести большие и многоэтапные задачи без планировочного хаоса
+- Для следующего шага — [`29-beginner-friendly-table-of-contents.md`](29-beginner-friendly-table-of-contents.md) — если хочешь снова увидеть общую карту уроков простым языком
