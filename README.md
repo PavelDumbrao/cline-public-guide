@@ -24,6 +24,32 @@
 
 ---
 
+## 👶 Если ты новичок и не хочешь утонуть в этом repo
+
+Если честно: материалов здесь уже много.
+И если просто открыть README и пытаться читать всё подряд, легко потеряться.
+
+Поэтому для новичка правильный вход такой:
+
+### Открой сначала это
+1. [`docs/29-beginner-friendly-table-of-contents.md`](docs/29-beginner-friendly-table-of-contents.md) — простое оглавление человеческим языком
+2. [`docs/00-start-here.md`](docs/00-start-here.md) — что такое Cline и почему не надо копировать чужой setup вслепую
+3. [`docs/21-learning-path-for-students.md`](docs/21-learning-path-for-students.md) — маршрут обучения по шагам
+
+### Если хочешь совсем коротко: что открывать под свою цель
+
+| Что тебе сейчас нужно | Что открыть |
+|---|---|
+| Я вообще не понимаю, с чего начать | [`docs/29-beginner-friendly-table-of-contents.md`](docs/29-beginner-friendly-table-of-contents.md) |
+| Я хочу понять, что такое Cline | [`docs/00-start-here.md`](docs/00-start-here.md) |
+| Я хочу идти как по учебной программе | [`docs/21-learning-path-for-students.md`](docs/21-learning-path-for-students.md) |
+| Я хочу быстро собрать минимальный setup | [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md) |
+| Я хочу научиться вести большие задачи без хаоса | [`docs/28-three-level-planning-in-cline.md`](docs/28-three-level-planning-in-cline.md) |
+
+> Если в какой-то момент снова потеряешься — просто вернись в [`docs/29-beginner-friendly-table-of-contents.md`](docs/29-beginner-friendly-table-of-contents.md).
+
+---
+
 ## 🧭 С чего начать — зависит от тебя
 
 ### Хочу, чтобы мой бро Cline сам помог мне всё собрать
@@ -173,20 +199,22 @@ https://github.com/PavelDumbrao/cline-public-guide
 ### Я первый раз слышу про Cline
 Добро пожаловать. Иди по порядку, не прыгай:
 
-1. [`docs/00-start-here.md`](docs/00-start-here.md) — точка входа. Что такое Cline и почему здесь нельзя копировать всё подряд.
-2. [`docs/01-cline-mental-model.md`](docs/01-cline-mental-model.md) — как правильно думать о роли Cline.
-3. [`docs/23-system-map-rules-skills-hooks-mcp.md`](docs/23-system-map-rules-skills-hooks-mcp.md) — как увидеть всю систему целиком.
-4. [`docs/21-learning-path-for-students.md`](docs/21-learning-path-for-students.md) — как идти по обучению шаг за шагом.
-5. [`docs/07-mcp-guide-human.md`](docs/07-mcp-guide-human.md) — какие внешние инструменты реально нужны, а какие пока не трогать.
-6. [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md) — как переносить систему под себя без хаоса.
-7. [`docs/15-example-prompts-and-calls.md`](docs/15-example-prompts-and-calls.md) — готовые запросы и задания для твоего Cline.
-8. [`examples/prompts/smoke-tests.md`](examples/prompts/smoke-tests.md) — финальная проверка, что всё реально работает.
+1. [`docs/29-beginner-friendly-table-of-contents.md`](docs/29-beginner-friendly-table-of-contents.md) — простое человеческое оглавление
+2. [`docs/00-start-here.md`](docs/00-start-here.md) — точка входа. Что такое Cline и почему здесь нельзя копировать всё подряд.
+3. [`docs/01-cline-mental-model.md`](docs/01-cline-mental-model.md) — как правильно думать о роли Cline.
+4. [`docs/23-system-map-rules-skills-hooks-mcp.md`](docs/23-system-map-rules-skills-hooks-mcp.md) — как увидеть всю систему целиком.
+5. [`docs/21-learning-path-for-students.md`](docs/21-learning-path-for-students.md) — как идти по обучению шаг за шагом.
+6. [`docs/07-mcp-guide-human.md`](docs/07-mcp-guide-human.md) — какие внешние инструменты реально нужны, а какие пока не трогать.
+7. [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md) — как переносить систему под себя без хаоса.
+8. [`docs/15-example-prompts-and-calls.md`](docs/15-example-prompts-and-calls.md) — готовые запросы и задания для твоего Cline.
+9. [`examples/prompts/smoke-tests.md`](examples/prompts/smoke-tests.md) — финальная проверка, что всё реально работает.
 
 ### Я уже настраивал Cline, хочу улучшить
-1. [`docs/02-official-vs-pavel-setup.md`](docs/02-official-vs-pavel-setup.md) — сравнение официального и продвинутого подхода.
-2. [`docs/03-rules-guide-human.md`](docs/03-rules-guide-human.md) — как писать правила, которые реально работают.
-3. [`docs/11-best-practices.md`](docs/11-best-practices.md) — лучшие практики из реальных проектов.
-4. [`docs/14-validation-checklists.md`](docs/14-validation-checklists.md) — чек-листы для самопроверки.
+1. [`docs/29-beginner-friendly-table-of-contents.md`](docs/29-beginner-friendly-table-of-contents.md) — чтобы быстро вспомнить карту материалов
+2. [`docs/02-official-vs-pavel-setup.md`](docs/02-official-vs-pavel-setup.md) — сравнение официального и продвинутого подхода.
+3. [`docs/03-rules-guide-human.md`](docs/03-rules-guide-human.md) — как писать правила, которые реально работают.
+4. [`docs/11-best-practices.md`](docs/11-best-practices.md) — лучшие практики из реальных проектов.
+5. [`docs/14-validation-checklists.md`](docs/14-validation-checklists.md) — чек-листы для самопроверки.
 
 ### Мне нужно только скопировать rules / skills
 Бери напрямую:
@@ -196,16 +224,20 @@ https://github.com/PavelDumbrao/cline-public-guide
 - Как адаптировать: [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md)
 
 ### Хочу собрать систему с нуля, по-взрослому
-1. [`docs/00-start-here.md`](docs/00-start-here.md)
-2. [`docs/01-cline-mental-model.md`](docs/01-cline-mental-model.md)
-3. [`docs/23-system-map-rules-skills-hooks-mcp.md`](docs/23-system-map-rules-skills-hooks-mcp.md)
-4. [`docs/07-mcp-guide-human.md`](docs/07-mcp-guide-human.md)
-5. [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md)
-6. [`docs/15-example-prompts-and-calls.md`](docs/15-example-prompts-and-calls.md)
-7. [`ai/README_FOR_CLINE.md`](ai/README_FOR_CLINE.md)
-8. [`REPORT.md`](REPORT.md)
+1. [`docs/29-beginner-friendly-table-of-contents.md`](docs/29-beginner-friendly-table-of-contents.md)
+2. [`docs/00-start-here.md`](docs/00-start-here.md)
+3. [`docs/01-cline-mental-model.md`](docs/01-cline-mental-model.md)
+4. [`docs/23-system-map-rules-skills-hooks-mcp.md`](docs/23-system-map-rules-skills-hooks-mcp.md)
+5. [`docs/07-mcp-guide-human.md`](docs/07-mcp-guide-human.md)
+6. [`docs/13-install-and-adapt.md`](docs/13-install-and-adapt.md)
+7. [`docs/15-example-prompts-and-calls.md`](docs/15-example-prompts-and-calls.md)
+8. [`ai/README_FOR_CLINE.md`](ai/README_FOR_CLINE.md)
+9. [`REPORT.md`](REPORT.md)
 
 ### Хочу именно мега-гайд, чтобы увидеть систему целиком и по шагам
+> Если ты совсем новичок — **не стартуй отсюда**.
+> Сначала пройди: [`docs/29-beginner-friendly-table-of-contents.md`](docs/29-beginner-friendly-table-of-contents.md) → [`docs/00-start-here.md`](docs/00-start-here.md) → [`docs/21-learning-path-for-students.md`](docs/21-learning-path-for-students.md)
+
 Иди в таком порядке:
 
 1. [`docs/00-start-here.md`](docs/00-start-here.md) — базовая ментальная модель
