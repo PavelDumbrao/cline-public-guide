@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "context7": {
+      "transport": "mcp",
+      "description": "Документация библиотек и фреймворков"
+    },
+    "tavily": {
+      "transport": "mcp",
+      "description": "Поиск и исследование в интернете",
+      "env": {
+        "TAVILY_API_KEY": "<YOUR_TAVILY_API_KEY>"
+      }
+    },
+    "github": {
+      "transport": "mcp",
+      "description": "GitHub repositories, issues, PR, code search",
+      "env": {
+        "GITHUB_TOKEN": "<YOUR_GITHUB_TOKEN>"
+      }
+    },
+    "playwright": {
+      "transport": "mcp",
+      "description": "Браузерная автоматизация и smoke checks"
+    }
+  }
+}
