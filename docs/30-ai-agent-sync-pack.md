@@ -1,87 +1,154 @@
 # 30. AI Agent Sync Pack
 
-Этот документ нужен для режима, когда репозиторий читаешь **не только ты**, но и **твой AI-агент**.
+Этот документ нужен для режима, когда repo читает не только человек, но и **AI-агент**, который должен помочь собрать setup.
 
 Если коротко:
-- человек читает human docs;
-- агент читает `ai/` как syncable source;
-- потом переносит setup по слоям.
+- человек читает `docs/` как обучение и operational guidance;
+- агент читает `ai/` как syncable public layer;
+- перенос идёт по слоям и подтверждается visibility check.
 
 ---
 
-## Зачем нужен отдельный sync pack
-Обычная ошибка такая:
-- ученик даёт агенту ссылку на repo;
-- агент читает README;
-- потом начинает хаотично копировать всё подряд.
+## Когда нужен этот режим
 
-Так делать не надо.
+Этот режим нужен, если ты хочешь не просто изучать repo, а использовать его как:
+- source of truth для переноса setup;
+- public mirror layer для rules / skills / hooks / MCP;
+- install-pack для своего Cline или другого AI-агента.
 
-Нужен отдельный режим:
-1. агент сначала понимает систему;
-2. потом видит, какие артефакты можно синкать почти 1-в-1;
-3. потом переносит их по порядку;
-4. после каждого слоя делает visibility check.
+Если ты пока сам изучаешь систему как человек — сначала иди сюда:
+- [`00-start-here.md`](00-start-here.md)
+- [`21-learning-path-for-students.md`](21-learning-path-for-students.md)
 
 ---
 
-## Что в repo можно использовать как syncable source
+## Главная ошибка AI sync режима
 
-### Для rules
+Плохой сценарий выглядит так:
+1. агент читает README;
+2. видит много файлов;
+3. начинает хаотично копировать всё подряд;
+4. объявляет “готово”, хотя runtime visibility не доказана.
+
+Так делать нельзя.
+
+Правильный сценарий такой:
+1. агент сначала понимает карту системы;
+2. определяет, что пользователю нужно минимально;
+3. использует `ai/` как syncable layer;
+4. переносит слоями;
+5. после каждого слоя делает read-back и visibility proof.
+
+---
+
+## Что в repo использовать как syncable source
+
+### Rules
 - `ai/rules/`
 
-### Для skills
+### Skills
 - `ai/skills/`
 
-### Для hooks
+### Hooks
 - `ai/hooks/`
 
-### Для AI-агента как install guide
-- `ai/README_FOR_CLINE.md`
-
-### Для MCP
+### MCP template layer
 - `ai/mcp/README.md`
 - `ai/mcp/mcp-config.template.json`
 
+### Инструкция для самого агента
+- `ai/README_FOR_CLINE.md`
+
 Важно:
-- это **public mirror**;
+- это **public mirror**, а не слепок приватной production-системы;
 - здесь нет живых секретов;
-- здесь есть структура, safe templates и понятный порядок переноса.
+- здесь есть структура, safe templates и понятный порядок синка.
 
 ---
 
 ## Что нельзя копировать вслепую
-Нельзя буквально копировать:
+
+Нельзя переносить буквально:
 - токены;
 - chat id;
-- приватные URL;
-- IP;
-- project-specific USER/TECH_STACK слои;
-- любые placeholders как реальные значения.
+- приватные URL и IP;
+- project-specific USER / tech-stack слои;
+- placeholders как реальные значения;
+- private-only интеграции без своего use-case.
 
 Правильная модель:
-- структура копируется;
-- секреты и project-specific значения подставляются вручную.
+- **структура копируется**;
+- **секреты и project-specific values подставляются вручную**;
+- **лишние слои не переносятся**.
 
 ---
 
-## Канонический порядок синка для AI-агента
+## Канонический порядок синка
+
+Почти всегда правильный порядок такой:
 1. `ai/rules/`
 2. `ai/skills/`
 3. `ai/mcp/`
 4. `ai/hooks/`
-5. smoke / visibility check
+5. smoke / visibility checks
 
-Почему именно так:
+Почему так:
 - rules задают policy;
-- skills дают on-demand экспертизу;
-- MCP добавляют внешние возможности;
-- hooks автоматизируют события и потому опаснее всего для раннего включения.
+- skills добавляют on-demand глубину;
+- MCP дают внешние возможности;
+- hooks автоматизируют lifecycle и потому опаснее всего при раннем включении.
 
 ---
 
-## Hooks: что уже можно копировать почти 1-в-1
-В `ai/hooks/` лежит public hook pack, который уже ближе к реальной рабочей архитектуре:
+## Как агент должен работать с этим repo
+
+Если ты AI-агент, твой safe-порядок такой:
+
+### Шаг 1. Прочитай карту и install protocol
+Сначала изучи:
+- `README.md`
+- `docs/23-system-map-rules-skills-hooks-mcp.md`
+- `docs/13-install-and-adapt.md`
+- `docs/25-cross-platform-installation-paths.md`
+- `docs/26-mega-prompt-for-ai-installer.md`
+- `docs/27-setup-self-check-and-recovery.md`
+- `ai/README_FOR_CLINE.md`
+
+### Шаг 2. Определи минимальный нужный набор
+Ответь:
+- что пользователю реально нужно сейчас;
+- какие слои можно пока не трогать;
+- какие project-specific values он должен заменить вручную.
+
+### Шаг 3. Ставь по слоям
+Не копируй весь repo механически.
+Переноси только релевантные слои и только маленькими батчами.
+
+### Шаг 4. После каждого батча доказывай результат
+После каждого слоя отдельно проверь:
+- файл записан;
+- файл прочитан обратно;
+- runtime реально видит слой;
+- есть proof через prompt / UI / event / tool call.
+
+---
+
+## Минимальный visibility contract для агента
+
+После каждого слоя агент должен уметь ответить:
+- `file_written: yes/no`
+- `file_read_back: yes/no`
+- `runtime_visibility_confirmed: yes/no`
+- `proof_used: ...`
+- `unresolved_risks: ...`
+
+Без этого следующий слой ставить нельзя.
+
+---
+
+## Hooks: что уже можно брать как готовую public основу
+
+В `ai/hooks/` лежит public hook pack, близкий к реальной рабочей архитектуре:
 - `TaskStart`
 - `PreToolUse`
 - `PostToolUse`
@@ -91,90 +158,46 @@
 - `scripts/project_identity.py`
 - `scripts/context_guard.py`
 
-Что это даёт агенту:
-- он может не сочинять hooks с нуля;
-- он может копировать готовую public архитектуру;
-- потом адаптировать только env и project-specific values.
+Что это даёт:
+- агенту не нужно сочинять hooks с нуля;
+- можно брать public-safe архитектуру как основу;
+- потом адаптировать env и project-specific значения.
+
+Но даже этот слой нельзя ставить раньше, чем подтверждён базовый rule / skill / MCP runtime.
 
 ---
 
-## Как AI-агенту работать с этим repo правильно
-Если ты Cline или другой агент, твой порядок такой:
+## Для человека: как использовать этот режим правильно
 
-1. Сначала прочитай:
-   - `README.md`
-   - `docs/23-system-map-rules-skills-hooks-mcp.md`
-   - `docs/13-install-and-adapt.md`
-   - `docs/25-cross-platform-installation-paths.md`
-   - `docs/26-mega-prompt-for-ai-installer.md`
-   - `docs/27-setup-self-check-and-recovery.md`
-   - `ai/README_FOR_CLINE.md`
-
-2. Потом определи:
-   - что пользователю нужно минимально;
-   - какие layers реально нужны сейчас;
-   - какие project-specific values он должен заменить вручную.
-
-3. Потом устанавливай по слоям.
-
-4. После каждого слоя проверяй:
-   - layer реально записан туда, куда надо;
-   - Cline действительно его видит;
-   - пользователь видит это в интерфейсе;
-   - только после этого переходи дальше.
-
----
-
-## Минимальный visibility check для AI-агента
-После каждого слоя агент должен доказать результат.
-
-### Rules
-- перечислить, какие rules поставлены;
-- попросить пользователя проверить их в интерфейсе.
-
-### Skills
-- показать, какие skill-папки созданы;
-- убедиться, что у каждой есть `SKILL.md`;
-- попросить пользователя проверить Skills UI.
-
-### MCP
-- подключать по одному;
-- после каждого сервера проверить visibility;
-- если нужен reload/reopen — сказать прямо.
-
-### Hooks
-- показать, какие hook-файлы перенесены;
-- показать, executable ли они;
-- прогнать safe smoke test.
-
----
-
-## Для человека: как использовать этот режим
-Если хочешь, чтобы твой Cline собрал setup по этому repo, давай ему не абстрактную просьбу, а чёткий install task.
+Если хочешь, чтобы твой Cline собрал setup по этому repo, дай ему не абстрактную просьбу, а install-task с ограничениями.
 
 Минимальная связка для старта:
 - `README.md`
 - `docs/26-mega-prompt-for-ai-installer.md`
+- `docs/27-setup-self-check-and-recovery.md`
 - `ai/README_FOR_CLINE.md`
 - этот файл
 
 ---
 
-## Что считать хорошим результатом
+## Что считать хорошим результатом AI sync режима
+
 Хороший результат — это когда агент:
-- не копирует хаотично весь repo;
+- не копирует repo хаотично;
 - идёт по слоям;
-- ставит hooks не раньше времени;
+- не ставит hooks слишком рано;
 - не хардкодит секреты;
-- использует public hook pack как готовую основу;
-- после каждого слоя делает visibility check.
+- использует `ai/` как sync-pack слой;
+- после каждого слоя делает visibility check;
+- не говорит “готово”, пока обязательные слои не подтверждены.
 
 ---
 
 ## Куда идти дальше
+
+- Для инструкции самому агенту — [`../ai/README_FOR_CLINE.md`](../ai/README_FOR_CLINE.md)
 - Для hooks глазами человека — [`05-hooks-guide-human.md`](05-hooks-guide-human.md)
-- Для карты всей системы — [`23-system-map-rules-skills-hooks-mcp.md`](23-system-map-rules-skills-hooks-mcp.md)
-- Для установки и адаптации — [`13-install-and-adapt.md`](13-install-and-adapt.md)
-- Для install paths — [`25-cross-platform-installation-paths.md`](25-cross-platform-installation-paths.md)
-- Для AI install prompt — [`26-mega-prompt-for-ai-installer.md`](26-mega-prompt-for-ai-installer.md)
-- Для recovery / self-check — [`27-setup-self-check-and-recovery.md`](27-setup-self-check-and-recovery.md)
+- Для install/adapt — [`13-install-and-adapt.md`](13-install-and-adapt.md)
+- Для путей и runtime — [`25-cross-platform-installation-paths.md`](25-cross-platform-installation-paths.md)
+- Для install prompt — [`26-mega-prompt-for-ai-installer.md`](26-mega-prompt-for-ai-installer.md)
+- Для recovery и visibility — [`27-setup-self-check-and-recovery.md`](27-setup-self-check-and-recovery.md)
